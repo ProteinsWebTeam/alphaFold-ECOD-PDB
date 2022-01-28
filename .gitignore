@@ -1,0 +1,9 @@
+pfam_af_cif/*
+pfam_af/*
+ecod_pdb/*
+tmp/*
+ecodDB*
+*.log
+*.m8
+*.gz
+*.txt
