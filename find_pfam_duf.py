@@ -111,7 +111,7 @@ def get_pfam(conf, pf_struct):
 def write_in_file(list_pfam_af, pf_dict):
     af2process = dict()
     with open(af2pfam_file, "w") as af2pf:
-        af2pf.write("af_prot,pfam_acc,pfam_id,clan,pfam_desc,has_struct,af_start,af_end\n")
+        af2pf.write("af_prot\tpfam_acc\tpfam_id\tclan\tpfam_desc\thas_struct\taf_start\taf_end\n")
         for pfam, af_dict in list_pfam_af.items():
             count = 0
             for af, match in af_dict.items():
@@ -124,7 +124,7 @@ def write_in_file(list_pfam_af, pf_dict):
                         af2process[af] = set(pfam)
                 count += 1
                 af2pf.write(
-                    f"{af},{pfam},{pf_dict[pfam]['id']},{pf_dict[pfam]['clan']},{pf_dict[pfam]['desc']},{pf_dict[pfam]['struct']},{match}\n"
+                    f"{af}\t{pfam}\t{pf_dict[pfam]['id']}\t{pf_dict[pfam]['clan']}\t{pf_dict[pfam]['desc']}\t{pf_dict[pfam]['struct']}\t{match}\n"
                 )
 
     print(len(af2process))

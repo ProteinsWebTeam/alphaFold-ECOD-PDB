@@ -35,7 +35,7 @@ def run_tm_align(afdir, af, ecoddir, ecodpdb):
 def get_best_match(list_matches):
 
     keep = dict()
-    pattern = r"[0-9]+\.pdbnum\.pdb_[A-Z0-9]+"
+    pattern = r"[0-9]+\.pdbnum\.pdb_[A-Za-z0-9]+"
     for line in list_matches:
         if re.search(pattern, line[1]):  # non existing pdb file => ignore match
             continue
@@ -191,7 +191,7 @@ if __name__ == "__main__":
         with open(af2pfam_file, "r") as f:
             for line in f.readlines():
                 line = line.strip()
-                values = line.split(",")
+                values = line.split("\t")
                 af = values[0]
                 if af not in af2pfam:
                     af2pfam[af] = [values[1:]]
