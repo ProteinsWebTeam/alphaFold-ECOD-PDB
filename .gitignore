@@ -1,5 +1,6 @@
 pfam_af_cif/*
 pfam_af/*
+pfam_af_new/*
 ecod_pdb/*
 tmp/*
 ecodDB*
@@ -7,3 +8,4 @@ ecodDB*
 *.m8
 *.gz
 *.txt
+*.csv

@@ -33,4 +33,4 @@ if [[ ! -f $ecod_file ]];then
 fi
 
 echo "search relevant matches"
-python find_relevant_matches.py $config_file > $matches_file
+python find_relevant_matches.py $config_file
