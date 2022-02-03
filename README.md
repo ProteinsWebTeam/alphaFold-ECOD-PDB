@@ -10,10 +10,10 @@ The following tools should be installed in the working directory:
 ## Run the comparison
 
 Fill the config file (`config_comp.ini`). 
-- ecod_pdb_file should be `<path>/ecod.latest.F70.pdb.tar.gz`
-- ecod_file and matches_file should have `.txt` extension.
-- output_file should have `.m8` extension
-- af2pfam_file should have `.tsv` extension
+- *ecod_pdb_file* should be `<path>/ecod.latest.F70.pdb.tar.gz`
+- *ecod_file* and matches_file should have `.txt` extension.
+- *output_file* should have `.m8` extension
+- *af2pfam_file* should have `.tsv` extension
 
 Execute `$ ./pipeline.sh config_comp.ini`
 
