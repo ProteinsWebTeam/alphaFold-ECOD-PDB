@@ -11,7 +11,8 @@ The following tools should be installed in the working directory:
 ### Python packages
 - mysqlclient >= 2.0
 - requests >= 2.25
-
+- mysql-connector-python >= 8.0.27
+ 
 ## Run the comparison
 
 Fill the config file (`config_comp.ini`). 
