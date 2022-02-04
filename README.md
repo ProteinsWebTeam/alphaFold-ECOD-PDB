@@ -6,6 +6,7 @@ Workflow to compare AlphaFold models with PDB structures and ECOD domains
 The following tools should be installed in the working directory:
 - Foldseek `$ wget --no-check-certificate https://mmseqs.com/foldseek/foldseek-linux-sse41.tar.gz; tar xvzf foldseek-linux-sse41.tar.gz;`
 - TMalign `$ wget https://zhanggroup.org/TM-align/TMalign.gz; gunzip TMalign.gz; chmod u+x TMalign;`
+- Python > 3.6
 
 ## Run the comparison
 
