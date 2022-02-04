@@ -7,6 +7,8 @@ else
     exit
 fi
 
+CWD=$(pwd)
+
 python3 find_pfam_duf.py $config_file || exit $1
 
 export PATH=$(pwd)/bin/:$PATH
@@ -31,7 +33,7 @@ if [[ ! -f $ecod_db ]];then
             done
             cd ..
             done
-        cd $basedir
+        cd $CWD
         rm -r "$basedir/data"
     fi
     echo "Generating ecodDB for foldseek"
