@@ -38,10 +38,14 @@ def get_pfam_AF(conf):
             """
     mycursor.execute(request)
     for row in mycursor.fetchall():
-        try:
-            list_pfam_af[row[0]][row[1]] += f";{row[2]}-{row[3]}"
-        except KeyError:
-            list_pfam_af[row[0]] = {row[1]: f"{row[2]}-{row[3]}"}
+        if row[0] in list_pfam_af:
+            if row[1] in list_pfam_af[row[0]]:
+                list_pfam_af[row[0]][row[1]] += f";{row[2]}-{row[3]}"
+            else:
+                list_pfam_af[row[0]][row[1]] = f"{row[2]}-{row[3]}"
+        else:
+            list_pfam_af[row[0]] = dict()
+            list_pfam_af[row[0]][row[1]] = f"{row[2]}-{row[3]}"
 
     mycursor.close()
     myslcon.close()
@@ -108,7 +112,7 @@ def get_pfam(conf, pf_struct):
     return pfam_dict
 
 
-def write_in_file(list_pfam_af, pf_dict):
+def write_in_file(list_pfam_af, pf_dict, af2pfam_file):
     af2process = dict()
     with open(af2pfam_file, "w") as af2pf:
         af2pf.write("af_prot\tpfam_acc\tpfam_id\tclan\tpfam_desc\thas_struct\taf_start\taf_end\n")
@@ -155,4 +159,4 @@ if __name__ == "__main__":
     pfam_dict = get_pfam(config["pfam_rel"], pfam_struct)
 
     print("Searching for Pfam with AlphaFold models")
-    list_af_to_process = write_in_file(list_pfam_af, pfam_dict)
+    list_af_to_process = write_in_file(list_pfam_af, pfam_dict, af2pfam_file)

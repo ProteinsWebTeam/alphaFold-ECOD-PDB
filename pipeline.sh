@@ -16,7 +16,7 @@ if [[ ! -f $ecod_db ]] || [[ ! -s $ecod_db ]];then
         echo "Downloading PDB matches from ECOD"
         wget -O $ecod_pdb_file http://prodata.swmed.edu/ecod/distributions/ecod.latest.F70.pdb.tar.gz
         cd $basedir
-	tar xvzf $ecod_pdb_file
+	    tar xvzf $ecod_pdb_file
         mkdir $ecoddir
         cd $ecodtmpdir
 	# cp -fr $ecodtmpdir $ecoddir
@@ -42,6 +42,7 @@ if [[ ! -f $ecod_db ]] || [[ ! -s $ecod_db ]];then
     foldseek createdb $ecoddir/ $ecod_db
 fi
 
+export PFAM_CONFIG=$pfam_config
 
 python3 find_pfam_duf.py $config_file || exit 2
 
